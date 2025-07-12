@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Sailing Itinerary Map with Numbered Stops and Duration</title>
+    <title>Simple Sailing Itinerary Map with Additional Points of Interest</title>
     
     <!-- Leaflet CSS for styling the map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map { height: 600px; width: 100%; }
-        
-        /* Styling for custom marker numbers */
         .custom-icon {
             background-color: white;
             border-radius: 50%;
@@ -27,7 +25,7 @@
 </head>
 <body>
 
-<h1>Simple Mediterranean Sailing Itinerary Map with Numbered Stops</h1>
+<h1>Simple Mediterranean Sailing Itinerary Map with Additional Points of Interest</h1>
 
 <!-- Map container -->
 <div id="map"></div>
@@ -46,6 +44,7 @@
 
     // Array of stops with coordinates, names, links, assigned seasons, and duration of stay
     var stops = [
+        // Original Stops
         {name: "Venice", lat: 45.4408, lon: 12.3155, info: "UNESCO Venice | <a href='https://www.marinasantelena.com/' target='_blank'>Marina Sant'Elena</a>", season: "summer", duration: "7 days"},
         {name: "Rovinj", lat: 45.0812, lon: 13.6385, info: "UNESCO Rovinj | <a href='https://aci-marinas.com/marina/aci-rovinj/' target='_blank'>ACI Marina Rovinj</a>", season: "summer", duration: "5 days"},
         {name: "Split", lat: 43.5081, lon: 16.4402, info: "UNESCO Split | <a href='https://aci-marinas.com/marina/aci-split/' target='_blank'>ACI Marina Split</a>", season: "summer", duration: "5 days"},
@@ -68,36 +67,23 @@
         {name: "Kastellorizo", lat: 36.1422, lon: 29.5844, info: "Kastellorizo | <a href='https://www.kastellorizomarina.gr/' target='_blank'>Kastellorizo Marina</a>", season: "spring", duration: "5 days"},
         {name: "Cyprus (Paphos)", lat: 34.7757, lon: 32.4244, info: "UNESCO Paphos | <a href='https://www.paphosmarina.com/' target='_blank'>Paphos Marina</a>", season: "spring", duration: "8 days"},
         {name: "Limassol", lat: 34.7071, lon: 33.0248, info: "Limassol | <a href='https://www.limassolmarina.com/' target='_blank'>Limassol Marina</a>", season: "spring", duration: "7 days"},
-        {name: "Larnaca", lat: 34.9208, lon: 33.6324, info: "Larnaca | <a href='https://www.larnacamarina.com/' target='_blank'>Larnaca Marina</a>", season: "spring", duration: "6 days"}
+        {name: "Larnaca", lat: 34.9208, lon: 33.6324, info: "Larnaca | <a href='https://www.larnacamarina.com/' target='_blank'>Larnaca Marina</a>", season: "spring", duration: "6 days"},
+
+        // Additional Points of Interest: Hidden beaches, diving, and cultural spots
+        {name: "Cala Luna, Sardinia", lat: 40.2578, lon: 9.7166, info: "Secluded beach, only accessible by boat | Ideal for diving and fishing. <a href='https://www.sardegnaturismo.it/en/explore/cala-luna' target='_blank'>More Info</a>", season: "summer", duration: "5 days"},
+        {name: "Pakleni Islands, Hvar", lat: 43.1763, lon: 16.4905, info: "Secluded beaches and local seafood restaurants, accessible only by boat. <a href='https://www.wearecravingadventure.com/blog/pakleni-islands-day-trip-hvar-croatia/' target='_blank'>More Info</a>", season: "spring", duration: "4 days"},
+        {name: "Île Sainte-Marguerite, Cannes", lat: 43.5147, lon: 7.0719, info: "Secluded island with peaceful beaches, accessible by boat or short ferry ride. <a href='https://www.cannes-france.com/decouvrir-visiter/iles-de-lerins/sainte-marguerite/' target='_blank'>More Info</a>", season: "summer", duration: "4 days"},
+        {name: "Spetses Island, Greece", lat: 37.2833, lon: 23.1211, info: "Quiet beaches and local cuisine, accessible by boat from Porto Heli. <a href='https://www.visitgreece.gr/en/greek_islands/saronic_islands/spetses' target='_blank'>More Info</a>", season: "fall", duration: "5 days"},
+        {name: "Cala di Volpe, Sardinia", lat: 41.1333, lon: 9.5205, info: "Beachfront luxury restaurant and beautiful beach, boat access only. <a href='https://www.d-marin.com/en/marinas/cala-di-volpe' target='_blank'>More Info</a>", season: "summer", duration: "6 days"}
     ];
-
-    // Function to assign color based on the season
-    function getMarkerColor(season) {
-        switch (season) {
-            case 'summer': return 'red';
-            case 'fall': return 'orange';
-            case 'winter': return 'blue';
-            case 'spring': return 'green';
-            default: return 'gray';
-        }
-    }
-
-    // Function to create custom icons with numbers
-    function createIcon(number) {
-        return new L.DivIcon({
-            className: 'custom-icon',
-            html: number,
-            iconSize: [30, 30],
-            iconAnchor: [15, 15],
-        });
-    }
 
     // Add markers for each stop, with numbered and color-coded markers
     stops.forEach(function(stop, index) {
-        var markerColor = getMarkerColor(stop.season); // Get color for season
-        L.marker([stop.lat, stop.lon], { icon: createIcon(index + 1) }) // Add the number to the marker
-            .addTo(map)
-            .bindPopup("<b>Stop " + (index + 1) + ": " + stop.name + "</b><br>" + stop.info + "<br><b>Duration of Stay:</b> " + stop.duration);
+        L.marker([stop.lat, stop.lon], { 
+            icon: new L.DivIcon({ className: 'custom-icon', html: index + 1, iconSize: [30, 30] }) 
+        })
+        .addTo(map)
+        .bindPopup("<b>Stop " + (index + 1) + ": " + stop.name + "</b><br>" + stop.info + "<br><b>Duration of Stay:</b> " + stop.duration);
     });
 </script>
 
