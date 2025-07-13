@@ -82,20 +82,23 @@
         }
     }
 
-    // Function to create custom icons with numbers
-    function createIcon(number) {
+    // Function to create custom icons with numbers and color
+    function createIcon(number, color) {
         return new L.DivIcon({
             className: 'custom-icon',
             html: number,
             iconSize: [30, 30],
             iconAnchor: [15, 15],
+            style: {
+                backgroundColor: color  // Apply the color to the marker
+            }
         });
     }
 
     // Add markers for each stop, with numbered and color-coded markers
     stops.forEach(function(stop, index) {
         var markerColor = getMarkerColor(stop.season); // Get color for season
-        L.marker([stop.lat, stop.lon], { icon: createIcon(index + 1) }) // Add the number to the marker
+        L.marker([stop.lat, stop.lon], { icon: createIcon(index + 1, markerColor) }) // Add the number and color to the marker
             .addTo(map)
             .bindPopup("<b>Stop " + (index + 1) + ": " + stop.name + "</b><br>" + stop.info + "<br><b>Duration of Stay:</b> " + stop.duration + "<br><b>Arrival Date:</b> " + stop.arrivalDate);
     });
