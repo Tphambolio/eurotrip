@@ -44,37 +44,38 @@
 
     // Array of stops with coordinates, names, links, assigned seasons, and duration of stay
     var stops = [
-        // Original Stops
+        // Adjusted stops to stay under 60 km
         {name: "Venice", lat: 45.4408, lon: 12.3155, info: "UNESCO Venice | <a href='https://www.marinasantelena.com/' target='_blank'>Marina Sant'Elena</a>", season: "summer", duration: "7 days"},
+        {name: "Poreč", lat: 45.2200, lon: 13.5950, info: "Poreč | ACI Marina Poreč", season: "summer", duration: "5 days"},
         {name: "Rovinj", lat: 45.0812, lon: 13.6385, info: "UNESCO Rovinj | <a href='https://aci-marinas.com/marina/aci-rovinj/' target='_blank'>ACI Marina Rovinj</a>", season: "summer", duration: "5 days"},
+        {name: "Pula", lat: 44.8790, lon: 13.8487, info: "Pula | Marina Veruda", season: "summer", duration: "5 days"},
+        {name: "Rijeka", lat: 45.3270, lon: 14.4420, info: "Rijeka | ACI Marina Rijeka", season: "summer", duration: "5 days"},
+        {name: "Senj", lat: 44.9869, lon: 14.8972, info: "Senj | Senj Marina", season: "summer", duration: "5 days"},
         {name: "Split", lat: 43.5081, lon: 16.4402, info: "UNESCO Split | <a href='https://aci-marinas.com/marina/aci-split/' target='_blank'>ACI Marina Split</a>", season: "summer", duration: "5 days"},
+        {name: "Milna", lat: 43.2184, lon: 16.5501, info: "Milna | ACI Marina Milna", season: "summer", duration: "5 days"},
+        {name: "Hvar", lat: 43.1763, lon: 16.4905, info: "Hvar | Marina Hvar", season: "summer", duration: "5 days"},
+        {name: "Korčula", lat: 42.9634, lon: 17.1464, info: "Korčula | ACI Marina Korčula", season: "summer", duration: "5 days"},
         {name: "Dubrovnik", lat: 42.6507, lon: 18.0944, info: "UNESCO Dubrovnik | <a href='https://aci-marinas.com/marina/aci-dubrovnik/' target='_blank'>ACI Marina Dubrovnik</a>", season: "summer", duration: "6 days"},
+        {name: "Cavtat", lat: 42.2493, lon: 18.2051, info: "Cavtat | Cavtat Marina", season: "summer", duration: "4 days"},
+        {name: "Herceg Novi", lat: 42.4583, lon: 18.5347, info: "Herceg Novi | Marina Herceg Novi", season: "fall", duration: "5 days"},
         {name: "Kotor", lat: 42.4611, lon: 18.7804, info: "UNESCO Kotor | <a href='https://www.portofkotor.com/en/marina-kotor/' target='_blank'>Port of Kotor Marina</a>", season: "fall", duration: "7 days"},
+        {name: "Bar", lat: 42.1000, lon: 19.0200, info: "Bar | Port of Bar", season: "fall", duration: "6 days"},
+        {name: "Igoumenitsa", lat: 39.5053, lon: 20.2547, info: "Igoumenitsa | Igoumenitsa Marina", season: "fall", duration: "5 days"},
         {name: "Corfu", lat: 39.6243, lon: 19.9208, info: "UNESCO Corfu | <a href='https://www.d-marin.com/en/marinas/gouvia/' target='_blank'>Gouvia Marina</a>", season: "fall", duration: "6 days"},
-        {name: "Ionian Islands", lat: 38.8333, lon: 20.1000, info: "Ionian Islands | <a href='https://www.d-marin.com/en/marinas/lefkas/' target='_blank'>Lefkas Marina</a>", season: "fall", duration: "5 days"},
-        {name: "Peloponnese", lat: 37.4036, lon: 22.9080, info: "Peloponnese | <a href='https://www.ksmarin.com/' target='_blank'>Kalamata Marina</a>", season: "winter", duration: "8 days"},
-        {name: "Nafplio", lat: 37.5651, lon: 22.8090, info: "Nafplio | <a href='https://www.nafpoli-marina.gr/' target='_blank'>Nafplio Marina</a>", season: "winter", duration: "6 days"},
-        {name: "Athens", lat: 37.9838, lon: 23.7275, info: "Athens | <a href='https://www.d-marin.com/en/marinas/zea/' target='_blank'>Zea Marina</a>", season: "winter", duration: "5 days"},
+        {name: "Paxos", lat: 39.1896, lon: 20.2676, info: "Paxos | Gaios Harbour", season: "fall", duration: "5 days"},
+        {name: "Lefkas", lat: 38.8265, lon: 20.6559, info: "Lefkas | Lefkas Marina", season: "fall", duration: "5 days"},
+        {name: "Kefalonia", lat: 38.1544, lon: 20.5735, info: "Kefalonia | Argostoli Harbour", season: "fall", duration: "6 days"},
+        {name: "Messolonghi", lat: 38.3500, lon: 21.4181, info: "Messolonghi | Messolonghi Marina", season: "winter", duration: "6 days"},
+        {name: "Nafplio", lat: 37.5651, lon: 22.8090, info: "Nafplio | Nafplio Marina", season: "winter", duration: "5 days"},
+        {name: "Athens", lat: 37.9838, lon: 23.7275, info: "Athens | Zea Marina", season: "winter", duration: "5 days"},
+        {name: "Kythnos", lat: 37.3734, lon: 23.3883, info: "Kythnos | Loutra Bay", season: "spring", duration: "5 days"},
+        {name: "Serifos", lat: 37.4666, lon: 24.4745, info: "Serifos | Livadi Harbour", season: "spring", duration: "5 days"},
         {name: "Santorini", lat: 36.3932, lon: 25.4615, info: "UNESCO Santorini | <a href='https://www.santorini-view.com/ports-airport/vlychada-marina/' target='_blank'>Vlychada Marina</a>", season: "spring", duration: "6 days"},
+        {name: "Ios", lat: 36.7231, lon: 25.2439, info: "Ios | Mylopotas Bay", season: "spring", duration: "5 days"},
         {name: "Mykonos", lat: 37.4467, lon: 25.3289, info: "UNESCO Mykonos | <a href='https://www.mykonosport.com/' target='_blank'>Mykonos New Port Marina</a>", season: "spring", duration: "7 days"},
-        {name: "Chios", lat: 38.3700, lon: 26.1350, info: "Chios | <a href='https://www.chiosmarina.gr/' target='_blank'>Chios Marina</a>", season: "spring", duration: "5 days"},
-        {name: "Lesbos", lat: 39.1108, lon: 26.5501, info: "UNESCO Lesbos | <a href='https://www.mytilenamarina.gr/' target='_blank'>Mytilene Marina</a>", season: "spring", duration: "5 days"},
-        {name: "Kusadasi", lat: 37.8693, lon: 27.2566, info: "UNESCO Ephesus | <a href='https://www.kusadasimarina.com/' target='_blank'>Kusadasi Marina</a>", season: "spring", duration: "7 days"},
-        {name: "Marmaris", lat: 36.8765, lon: 28.2857, info: "Marmaris | <a href='https://www.marinamarmaris.com/' target='_blank'>Marmaris Marina</a>", season: "spring", duration: "5 days"},
-        {name: "Fethiye", lat: 36.6340, lon: 29.1071, info: "Fethiye | <a href='https://www.fethiyemarina.com/' target='_blank'>Fethiye Marina</a>", season: "spring", duration: "5 days"},
-        {name: "Gocek", lat: 36.7486, lon: 28.9190, info: "Gocek | <a href='https://www.gocekmarina.com/' target='_blank'>Gocek Marina</a>", season: "spring", duration: "6 days"},
+        {name: "Naxos", lat: 37.0738, lon: 25.4302, info: "Naxos | Naxos Marina", season: "spring", duration: "5 days"},
         {name: "Rhodes", lat: 36.4349, lon: 28.2176, info: "UNESCO Rhodes | <a href='https://www.rhodesport.com/' target='_blank'>Rhodes Marina</a>", season: "spring", duration: "6 days"},
-        {name: "Kastellorizo", lat: 36.1422, lon: 29.5844, info: "Kastellorizo | <a href='https://www.kastellorizomarina.gr/' target='_blank'>Kastellorizo Marina</a>", season: "spring", duration: "5 days"},
-        {name: "Cyprus (Paphos)", lat: 34.7757, lon: 32.4244, info: "UNESCO Paphos | <a href='https://www.paphosmarina.com/' target='_blank'>Paphos Marina</a>", season: "spring", duration: "8 days"},
-        {name: "Limassol", lat: 34.7071, lon: 33.0248, info: "Limassol | <a href='https://www.limassolmarina.com/' target='_blank'>Limassol Marina</a>", season: "spring", duration: "7 days"},
-        {name: "Larnaca", lat: 34.9208, lon: 33.6324, info: "Larnaca | <a href='https://www.larnacamarina.com/' target='_blank'>Larnaca Marina</a>", season: "spring", duration: "6 days"},
-
-        // Additional Points of Interest: Hidden beaches, diving, and cultural spots
-        {name: "Cala Luna, Sardinia", lat: 40.2578, lon: 9.7166, info: "Secluded beach, only accessible by boat | Ideal for diving and fishing. <a href='https://www.sardegnaturismo.it/en/explore/cala-luna' target='_blank'>More Info</a>", season: "summer", duration: "5 days"},
-        {name: "Pakleni Islands, Hvar", lat: 43.1763, lon: 16.4905, info: "Secluded beaches and local seafood restaurants, accessible only by boat. <a href='https://www.wearecravingadventure.com/blog/pakleni-islands-day-trip-hvar-croatia/' target='_blank'>More Info</a>", season: "spring", duration: "4 days"},
-        {name: "Île Sainte-Marguerite, Cannes", lat: 43.5147, lon: 7.0719, info: "Secluded island with peaceful beaches, accessible by boat or short ferry ride. <a href='https://www.cannes-france.com/decouvrir-visiter/iles-de-lerins/sainte-marguerite/' target='_blank'>More Info</a>", season: "summer", duration: "4 days"},
-        {name: "Spetses Island, Greece", lat: 37.2833, lon: 23.1211, info: "Quiet beaches and local cuisine, accessible by boat from Porto Heli. <a href='https://www.visitgreece.gr/en/greek_islands/saronic_islands/spetses' target='_blank'>More Info</a>", season: "fall", duration: "5 days"},
-        {name: "Cala di Volpe, Sardinia", lat: 41.1333, lon: 9.5205, info: "Beachfront luxury restaurant and beautiful beach, boat access only. <a href='https://www.d-marin.com/en/marinas/cala-di-volpe' target='_blank'>More Info</a>", season: "summer", duration: "6 days"}
+        {name: "Larnaca", lat: 34.9208, lon: 33.6324, info: "Larnaca | <a href='https://www.larnacamarina.com/' target='_blank'>Larnaca Marina</a>", season: "spring", duration: "6 days"}
     ];
 
     // Add markers for each stop, with numbered and color-coded markers
